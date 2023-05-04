@@ -1,5 +1,11 @@
 function hwdmn_stats(varargin)
 
+% Quit if requested (for extracting CTF in docker image)
+if strcmp(varargin{1},'quit')
+    exit
+end
+
+% Inputs
 P = inputParser;
 addOptional(P,'matrix_csv','/INPUTS/R_removegm.csv')
 addOptional(P,'out_dir','/OUTPUTS')
@@ -7,6 +13,7 @@ parse(P,varargin{:});
 disp(P.Results)
 matrix_csv = P.Results.matrix_csv;
 out_dir = P.Results.out_dir;
+
 
 %% Read matrix from conncalc
 C = readtable(matrix_csv,'ReadRowNames',true);
@@ -53,3 +60,8 @@ result.('DMN_mean') = mean(Clist);
 %% Save to file
 writetable(result,fullfile(out_dir,'hwdmn.csv'));
 
+
+%% Exit
+if isdeployed
+    exit
+end
