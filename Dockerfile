@@ -4,7 +4,7 @@ FROM centos:7
 # java-1.8.0-openjdk                                 for MCR
 RUN yum -y update && \
     yum -y install wget tar zip unzip && \
-    yum -y install java-1.8.0-openjdk && \
+    yum -y install java-1.8.0-openjdk libXt && \
     yum clean all
 
 # Install the MCR
@@ -31,4 +31,4 @@ ENV PATH=/opt/hwdmn-stats/src:/opt/hwdmn-stats/bin:${PATH}
 RUN run_hwdmn_stats.sh ${MATLAB_RUNTIME} quit
 
 # Entrypoint
-ENTRYPOINT ["hwdmn-stats.sh"]
+ENTRYPOINT ["run_hwdmn_stats.sh","/usr/local/MATLAB/MATLAB_Runtime/v97"]
