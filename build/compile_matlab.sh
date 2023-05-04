@@ -15,10 +15,10 @@ export PATH=/usr/local/MATLAB/R2019b/bin:${PATH}
 
 mcc -m -C -v src/hwdmn_stats.m \
     -N \
-    -a src \
-    -d bin
+    -a ../src \
+    -d ../bin
 
 # We grant lenient execute permissions to the matlab executable and runscript so
 # we don't have hiccups later.
-chmod go+rx bin/hwdmn_stats
-chmod go+rx bin/run_hwdmn_stats.sh
+chmod go+rx ../bin/hwdmn_stats
+chmod go+rx ../bin/run_hwdmn_stats.sh
