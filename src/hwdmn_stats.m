@@ -1,8 +1,8 @@
 function hwdmn_stats(varargin)
 
 P = inputParser;
-addOptional(P,'matrix_csv','../INPUTS/R_removegm.csv')
-addOptional(P,'out_dir','../OUTPUTS')
+addOptional(P,'matrix_csv','/INPUTS/R_removegm.csv')
+addOptional(P,'out_dir','/OUTPUTS')
 parse(P,varargin{:});
 disp(P.Results)
 matrix_csv = P.Results.matrix_csv;
