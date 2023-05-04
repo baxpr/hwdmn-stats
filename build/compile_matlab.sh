@@ -13,7 +13,7 @@
 # We may need to add Matlab to the path on the compilation machine
 export PATH=/usr/local/MATLAB/R2019b/bin:${PATH}
 
-mcc -m -C -v src/hwdmn_stats.m \
+mcc -m -C -v ../src/hwdmn_stats.m \
     -N \
     -a ../src \
     -d ../bin
